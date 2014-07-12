@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0" name="datasource-hsqldb-${project.version}">
+
+    <feature name="datasource-hsqldb" version="${project.version}" >
+        <details>Datasource HSQLDB.</details>
+
+        <bundle>wrap:mvn:cglib/cglib-nodep/3.1</bundle>
+        <bundle>mvn:org.apache.commons/commons-pool2/2.2</bundle>
+        <bundle>mvn:org.apache.commons/commons-dbcp2/2.0.1</bundle>
+        <bundle>mvn:org.hsqldb/hsqldb/2.3.2</bundle>
+
+        <!-- datasource -->
+        <!-- defined in blueprint.xml with a persistence-id -->
+        <bundle>mvn:com.github.buuhsmead/datasource-hsqldb/${project.version}</bundle>
+
+        <config name="datasource.hsqldb" >
+            database.url = jdbc:hsqldb:file:///Users/huub/weer.as400.db
+            database.datasourcename = eisds
+        </config>
+    </feature>
+
+
+</features>
